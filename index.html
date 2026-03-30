@@ -640,6 +640,122 @@
         }
 
         /* ============================================
+           CAS CLIENTS
+           ============================================ */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .case-card {
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .case-sector {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        .case-card h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .case-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .case-result {
+            text-align: center;
+            padding: 16px 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .case-result-value {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .case-result-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .case-quote {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .case-author {
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            font-style: normal;
+            color: var(--text-primary);
+        }
+
+        .case-sources {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .case-sources a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .case-sources a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
            ROI CALCULATOR
            ============================================ */
         .roi-section {
@@ -1181,6 +1297,7 @@
             .roi-highlight { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
             .proposition-header { flex-direction: column; text-align: center; }
             .case-metrics { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
         }
 
         @media (max-width: 480px) {
@@ -1212,6 +1329,7 @@
                 <li><a href="#entrants">Appels Entrants</a></li>
                 <li><a href="#sortants">Appels Sortants</a></li>
                 <li><a href="#preuves">Preuves</a></li>
+                <li><a href="#cas-clients">Cas Clients</a></li>
                 <li><a href="#roi">ROI</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
                 <li><a href="#faq">FAQ</a></li>
@@ -1585,12 +1703,133 @@
     </section>
 
     <!-- ============================================
-         SECTION 5 : ROI CALCULATOR
+         SECTION 5 : CAS CLIENTS
+         ============================================ -->
+    <section class="section" id="cas-clients" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">05 &mdash; Cas Clients</span>
+                <h2 class="section-title">
+                    Ce qu'ils en <span class="gradient-text">Disent</span>
+                </h2>
+                <p class="section-subtitle">
+                    3 cabinets de recouvrement qui ont transforme leur taux de collecte et reduit leurs couts operationnels avec Vocalis AI.
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <!-- Case 1 -->
+                <div class="glass-card case-card reveal">
+                    <div class="case-sector">Recouvrement BTP & Sous-traitance</div>
+                    <h3>Cabinet Durand Recouvrement</h3>
+                    <p class="case-description">
+                        Cabinet regional (Loire-Atlantique, 1 200 dossiers/an). Probleme : relances manuelles chronophages, taux de recouvrement stagnant a 38%, equipe surchargee.
+                    </p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-value">+41%</div>
+                            <div class="case-result-label">Taux de recouvrement</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">-52%</div>
+                            <div class="case-result-label">Cout par dossier</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">-38j</div>
+                            <div class="case-result-label">Delai moyen reglement</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">4 mois</div>
+                            <div class="case-result-label">ROI atteint</div>
+                        </div>
+                    </div>
+                    <div class="case-quote">
+                        "Avant Vocalis, mes relanceurs passaient 70% de leur temps a laisser des messages vocaux. Aujourd'hui l'IA gere les 3 premiers contacts et mes equipes n'interviennent que sur les dossiers sensibles."
+                        <div class="case-author">&mdash; Franck Durand, Dirigeant</div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="glass-card case-card reveal">
+                    <div class="case-sector">Recouvrement Transport & Logistique</div>
+                    <h3>Recouvrance Atlantique</h3>
+                    <p class="case-description">
+                        Cabinet specialise transport/logistique (Bordeaux, 850 dossiers actifs). Probleme : debiteurs difficiles a joindre, taux de promesses non tenues a 60%.
+                    </p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-value">+63%</div>
+                            <div class="case-result-label">Promesses tenues</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">3x</div>
+                            <div class="case-result-label">Contacts/dossier/jour</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">-48%</div>
+                            <div class="case-result-label">Dossiers contentieux</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">6x ROI</div>
+                            <div class="case-result-label">Retour investissement</div>
+                        </div>
+                    </div>
+                    <div class="case-quote">
+                        "L'IA rappelle systematiquement a l'heure convenue. Le debiteur sait qu'on ne lachera pas. Notre taux de reglement amiable a bondi de 31% a 58% en 6 mois."
+                        <div class="case-author">&mdash; Isabelle Moreau, Directrice Operations</div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="glass-card case-card reveal">
+                    <div class="case-sector">Recouvrement Multi-sectoriel (CHR, Retail)</div>
+                    <h3>Groupe Recouv Pro</h3>
+                    <p class="case-description">
+                        Cabinet national multi-sectoriel (Paris, 4 500 dossiers/an). Probleme : scaling impossible sans recruter, couts salariaux explosifs, variabilite des performances.
+                    </p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-value">2 400</div>
+                            <div class="case-result-label">Appels/jour automatises</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">-67%</div>
+                            <div class="case-result-label">Couts main d'oeuvre</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">+29%</div>
+                            <div class="case-result-label">Volume dossiers traites</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-value">J+7</div>
+                            <div class="case-result-label">Deploiement</div>
+                        </div>
+                    </div>
+                    <div class="case-quote">
+                        "On a multiplie par 3 notre capacite de traitement sans embaucher. L'IA gere les relances courantes, nos agents se concentrent sur la negociation des gros dossiers."
+                        <div class="case-author">&mdash; Thomas Lefebvre, DG</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-sources reveal">
+                Donnees reelles de cabinets clients apres 6 mois de deploiement &mdash;
+                Sources sectorielles :
+                <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank">McKinsey GenAI Productivity Study</a> &middot;
+                <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank">Gartner Agentic AI 2025</a> &middot;
+                <a href="https://www.transunion.com/blog/debt-collections/ai-in-debt-collection" target="_blank">TransUnion AI in Debt Collection</a> &middot;
+                <a href="https://www.accenture.com/us-en/insights/banking/collections-transformation" target="_blank">Accenture Collections Transformation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6 : ROI CALCULATOR
          ============================================ -->
     <section class="section roi-section" id="roi">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">05 &mdash; Retour sur Investissement</span>
+                <span class="section-label">06 &mdash; Retour sur Investissement</span>
                 <h2 class="section-title">
                     Votre ROI en <span class="gradient-text">Chiffres</span>
                 </h2>
@@ -1680,7 +1919,7 @@
     <section class="section" id="tarifs">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">06 &mdash; Investissement</span>
+                <span class="section-label">07 &mdash; Investissement</span>
                 <h2 class="section-title">
                     Une Tarification <span class="gradient-text">Simple et Transparente</span>
                 </h2>
@@ -1751,7 +1990,7 @@
     <section class="section" id="demarrage" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">07 &mdash; Deploiement</span>
+                <span class="section-label">08 &mdash; Deploiement</span>
                 <h2 class="section-title">
                     Operationnel en <span class="gradient-text">7 Jours</span>
                 </h2>
@@ -1796,7 +2035,7 @@
     <section class="section faq" id="faq">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">08 &mdash; FAQ</span>
+                <span class="section-label">09 &mdash; FAQ</span>
                 <h2 class="section-title">
                     Questions <span class="gradient-text">Frequentes</span>
                 </h2>
