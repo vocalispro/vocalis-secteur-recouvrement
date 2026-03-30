@@ -640,6 +640,156 @@
         }
 
         /* ============================================
+           ETUDE HIGHLIGHT
+           ============================================ */
+        .study-highlight {
+            margin-top: 48px;
+            padding: 40px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.05), rgba(0, 232, 143, 0.05));
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .study-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+        }
+
+        .study-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .study-badge {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            color: var(--accent-cyan);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .study-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .study-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .study-meta a {
+            color: var(--accent-cyan);
+        }
+
+        .study-kpis {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .study-kpi {
+            text-align: center;
+            padding: 20px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .study-kpi-value {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .study-kpi-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .study-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .study-comp-block {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .study-comp-block.before {
+            background: rgba(255, 71, 87, 0.05);
+            border: 1px solid rgba(255, 71, 87, 0.15);
+        }
+
+        .study-comp-block.after {
+            background: rgba(0, 232, 143, 0.05);
+            border: 1px solid rgba(0, 232, 143, 0.15);
+        }
+
+        .study-comp-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .study-comp-block.before .study-comp-title { color: var(--accent-red); }
+        .study-comp-block.after .study-comp-title { color: var(--accent-green); }
+
+        .study-comp-stat {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .study-comp-block.before .study-comp-stat { color: var(--accent-red); }
+        .study-comp-block.after .study-comp-stat { color: var(--accent-green); }
+
+        .study-comp-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .study-footer {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .study-footer a { color: var(--accent-cyan); }
+
+        /* ============================================
            CHARTS
            ============================================ */
         .charts-grid {
@@ -1459,6 +1609,8 @@
             .case-metrics { grid-template-columns: 1fr; }
             .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
             .charts-grid { grid-template-columns: 1fr; }
+            .study-kpis { grid-template-columns: repeat(2, 1fr); }
+            .study-comparison { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -1831,7 +1983,7 @@
                     Ce que Disent les <span class="gradient-text">Etudes Sectorielles</span>
                 </h2>
                 <p class="section-subtitle">
-                    McKinsey, Gartner, TransUnion, Accenture — les plus grands cabinets confirment l'impact de l'IA sur le recouvrement de creances.
+                    McKinsey, Gartner, TransUnion, Accenture, Pair Finance — les etudes independantes confirment l'impact de l'IA vocale sur le recouvrement de creances.
                 </p>
             </div>
 
@@ -1856,6 +2008,54 @@
                     <div class="stat-number gradient-text">-45j</div>
                     <div class="stat-label">Delai moyen de recouvrement<br>reduit avec l'IA</div>
                     <a href="https://www.accenture.com/us-en/insights/banking/collections-transformation" target="_blank" class="chart-source" style="display:block; border-top:none; padding-top:8px;">Accenture Collections &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Etude Pair Finance -->
+            <div class="study-highlight reveal">
+                <div class="study-header">
+                    <span class="study-badge">Etude independante &bull; Fevrier 2026</span>
+                    <div>
+                        <div class="study-title">L'IA reduit le stress emotionnel lie au recouvrement de creances de 36%</div>
+                        <div class="study-meta">Pair Finance &mdash; 3 514 participants &bull; 11 pays europeens &bull; Aout&ndash;Octobre 2025 &mdash; <a href="https://www.allnews.ch/content/points-de-vue/lia-r%C3%A9duit-le-stress-%C3%A9motionnel-li%C3%A9-au-recouvrement-de-cr%C3%A9ances-de-36" target="_blank">Lire l'etude &rarr;</a></div>
+                    </div>
+                </div>
+
+                <div class="study-kpis">
+                    <div class="study-kpi">
+                        <div class="study-kpi-value">-36%</div>
+                        <div class="study-kpi-label">Stress emotionnel<br>ressenti par le debiteur</div>
+                    </div>
+                    <div class="study-kpi">
+                        <div class="study-kpi-value">70%</div>
+                        <div class="study-kpi-label">Des cas resolus<br>sans intervention humaine</div>
+                    </div>
+                    <div class="study-kpi">
+                        <div class="study-kpi-value">3 514</div>
+                        <div class="study-kpi-label">Participants<br>11 pays europeens</div>
+                    </div>
+                    <div class="study-kpi">
+                        <div class="study-kpi-value">50%</div>
+                        <div class="study-kpi-label">Confiance accordee a l'IA<br>identique a l'humain</div>
+                    </div>
+                </div>
+
+                <div class="study-comparison">
+                    <div class="study-comp-block before">
+                        <div class="study-comp-title">Agent humain</div>
+                        <div class="study-comp-stat">61%</div>
+                        <div class="study-comp-desc">des debiteurs se sentent <strong>juges</strong> apres interaction avec un agent humain</div>
+                    </div>
+                    <div class="study-comp-block after">
+                        <div class="study-comp-title">IA Vocalis</div>
+                        <div class="study-comp-stat">39%</div>
+                        <div class="study-comp-desc">des debiteurs se sentent juges avec l'IA &mdash; soit <strong>-36% de stigmatisation</strong></div>
+                    </div>
+                </div>
+
+                <div class="study-footer">
+                    Methodologie : 3 514 participants (52% hommes, 48% femmes, age moyen 35 ans) dans 11 pays europeens &bull; Aout&ndash;Octobre 2025 &bull;
+                    Source : <a href="https://www.allnews.ch/content/points-de-vue/lia-r%C3%A9duit-le-stress-%C3%A9motionnel-li%C3%A9-au-recouvrement-de-cr%C3%A9ances-de-36" target="_blank">Allnews.ch &mdash; Pair Finance, fevrier 2026</a>
                 </div>
             </div>
 
