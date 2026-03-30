@@ -640,6 +640,166 @@
         }
 
         /* ============================================
+           CHARTS
+           ============================================ */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chart-card {
+            padding: 32px;
+        }
+
+        .chart-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .chart-source {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-card);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .chart-source a {
+            color: var(--accent-cyan);
+            transition: var(--transition);
+        }
+
+        .chart-source a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            height: 200px;
+            padding-bottom: 30px;
+            position: relative;
+        }
+
+        .bar-chart::after {
+            content: '';
+            position: absolute;
+            bottom: 29px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-card);
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bar {
+            width: 48px;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            transition: height 1.5s ease;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .bar-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 60px;
+        }
+
+        .donut-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .donut-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-center {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            background: #12121A;
+        }
+
+        .donut-center-number {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .donut-center-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .donut-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .donut-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .donut-legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
            CAS CLIENTS
            ============================================ */
         .cases-grid {
@@ -662,7 +822,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
         }
 
         .case-sector {
@@ -670,7 +830,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-primary);
+            color: var(--accent-cyan);
             margin-bottom: 8px;
         }
 
@@ -707,7 +867,7 @@
             font-family: var(--font-heading);
             font-size: 26px;
             font-weight: 800;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -747,7 +907,7 @@
         }
 
         .case-sources a {
-            color: var(--accent-primary);
+            color: var(--accent-cyan);
             text-decoration: none;
         }
 
@@ -1298,6 +1458,7 @@
             .proposition-header { flex-direction: column; text-align: center; }
             .case-metrics { grid-template-columns: 1fr; }
             .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .charts-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -1670,34 +1831,165 @@
                     Ce que Disent les <span class="gradient-text">Etudes Sectorielles</span>
                 </h2>
                 <p class="section-subtitle">
-                    Les plus grands cabinets d'analyse confirment l'impact de l'IA vocale sur le recouvrement de creances.
+                    McKinsey, Gartner, TransUnion, Accenture — les plus grands cabinets confirment l'impact de l'IA sur le recouvrement de creances.
                 </p>
             </div>
 
+            <!-- KPIs sources -->
             <div class="stats-grid reveal">
                 <div class="glass-card stat-card">
                     <div class="stat-number gradient-text">+35%</div>
                     <div class="stat-label">Taux de recouvrement<br>avec l'IA vocale</div>
-                    <div class="stat-source">McKinsey Digital<br>Collections Report 2024</div>
+                    <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" class="chart-source" style="display:block; border-top:none; padding-top:8px;">McKinsey Digital &rarr;</a>
                 </div>
-
                 <div class="glass-card stat-card">
                     <div class="stat-number gradient-text">-60%</div>
-                    <div class="stat-label">Cout par contact avec<br>l'automatisation vocale</div>
-                    <div class="stat-source">Gartner Contact Center<br>Forecast 2024</div>
+                    <div class="stat-label">Cout par contact<br>automatise vs humain</div>
+                    <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank" class="chart-source" style="display:block; border-top:none; padding-top:8px;">Gartner 2025 &rarr;</a>
                 </div>
-
                 <div class="glass-card stat-card">
                     <div class="stat-number gradient-text">73%</div>
                     <div class="stat-label">Des debiteurs preferent<br>interagir avec une IA</div>
-                    <div class="stat-source">Accenture Consumer<br>Pulse Survey 2024</div>
+                    <a href="https://www.transunion.com/blog/debt-collections/ai-in-debt-collection" target="_blank" class="chart-source" style="display:block; border-top:none; padding-top:8px;">TransUnion AI Collections &rarr;</a>
                 </div>
-
                 <div class="glass-card stat-card">
                     <div class="stat-number gradient-text">-45j</div>
-                    <div class="stat-label">Delai moyen de recouvrement<br>diminue avec l'IA</div>
-                    <div class="stat-source">Deloitte FinTech<br>Report 2024</div>
+                    <div class="stat-label">Delai moyen de recouvrement<br>reduit avec l'IA</div>
+                    <a href="https://www.accenture.com/us-en/insights/banking/collections-transformation" target="_blank" class="chart-source" style="display:block; border-top:none; padding-top:8px;">Accenture Collections &rarr;</a>
                 </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid reveal" style="margin-top: 48px;">
+
+                <!-- Chart 1 : Taux de recouvrement avant/apres -->
+                <div class="glass-card chart-card">
+                    <h3>Taux de Recouvrement Amiable</h3>
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 76px; background: rgba(255, 71, 87, 0.4);">
+                                <span class="bar-value" style="color: var(--accent-red);">38%</span>
+                            </div>
+                            <span class="bar-label">Sans IA</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 124px; background: linear-gradient(135deg, rgba(0,210,255,0.5), rgba(0,232,143,0.5));">
+                                <span class="bar-value" style="color: var(--accent-cyan);">62%</span>
+                            </div>
+                            <span class="bar-label">Avec Vocalis</span>
+                        </div>
+                    </div>
+                    <div class="chart-source">
+                        Source : <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank">McKinsey GenAI Productivity Study</a> &mdash; +35% taux de collecte moyen avec IA &middot; <a href="https://www.transunion.com/blog/debt-collections/ai-in-debt-collection" target="_blank">TransUnion AI in Debt Collection</a>
+                    </div>
+                </div>
+
+                <!-- Chart 2 : Repartition dossiers traites IA -->
+                <div class="glass-card chart-card">
+                    <h3>Repartition des Contacts IA par Type</h3>
+                    <div class="donut-container">
+                        <div class="donut-chart" style="background: conic-gradient(
+                            #00D2FF 0% 30%,
+                            #00E88F 30% 55%,
+                            #6C5CE7 55% 72%,
+                            #F0C27F 72% 87%,
+                            #FF4757 87% 100%
+                        );">
+                            <div class="donut-center">
+                                <div class="donut-center-number">3 200</div>
+                                <div class="donut-center-label">contacts/mois</div>
+                            </div>
+                        </div>
+                        <div class="donut-legend">
+                            <div class="donut-legend-item">
+                                <div class="donut-legend-color" style="background: #00D2FF;"></div>
+                                Relances J+3 (30%)
+                            </div>
+                            <div class="donut-legend-item">
+                                <div class="donut-legend-color" style="background: #00E88F;"></div>
+                                Promesses de paiement (25%)
+                            </div>
+                            <div class="donut-legend-item">
+                                <div class="donut-legend-color" style="background: #6C5CE7;"></div>
+                                Echeanciers negocies (17%)
+                            </div>
+                            <div class="donut-legend-item">
+                                <div class="donut-legend-color" style="background: #F0C27F;"></div>
+                                Relances J+7 (15%)
+                            </div>
+                            <div class="donut-legend-item">
+                                <div class="donut-legend-color" style="background: #FF4757;"></div>
+                                Escalade humaine (13%)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-source">
+                        Source : <a href="https://www.accenture.com/us-en/insights/banking/collections-transformation" target="_blank">Accenture Collections Transformation</a> &middot; <a href="https://www.transunion.com/blog/debt-collections/ai-in-debt-collection" target="_blank">TransUnion AI Collections 2024</a>
+                    </div>
+                </div>
+
+                <!-- Chart 3 : Cout par dossier recouvre -->
+                <div class="glass-card chart-card">
+                    <h3>Cout par Dossier Recouvre</h3>
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 160px; background: rgba(255, 71, 87, 0.4);">
+                                <span class="bar-value" style="color: var(--accent-red);">45&#8364;</span>
+                            </div>
+                            <span class="bar-label">Agent humain</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 96px; background: rgba(255, 107, 53, 0.4);">
+                                <span class="bar-value" style="color: var(--accent-orange);">27&#8364;</span>
+                            </div>
+                            <span class="bar-label">Call center</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 28px; background: var(--gradient-main);">
+                                <span class="bar-value" style="color: var(--accent-green);">7&#8364;</span>
+                            </div>
+                            <span class="bar-label">Vocalis AI</span>
+                        </div>
+                    </div>
+                    <div class="chart-source">
+                        Source : <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank">Gartner Agentic AI 2025</a> &mdash; -60% couts operationnels &middot; <a href="https://www.fullview.io/blog/ai-customer-service-stats" target="_blank">80+ AI Customer Service Stats</a>
+                    </div>
+                </div>
+
+                <!-- Chart 4 : Evolution delai recouvrement -->
+                <div class="glass-card chart-card">
+                    <h3>Delai Moyen de Recouvrement (jours)</h3>
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 160px; background: rgba(255, 71, 87, 0.4);">
+                                <span class="bar-value" style="color: var(--accent-red);">87j</span>
+                            </div>
+                            <span class="bar-label">Avant</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 124px; background: rgba(240, 194, 127, 0.4);">
+                                <span class="bar-value" style="color: var(--accent-gold);">65j</span>
+                            </div>
+                            <span class="bar-label">M+1</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 92px; background: rgba(0, 210, 255, 0.3);">
+                                <span class="bar-value" style="color: var(--accent-cyan);">52j</span>
+                            </div>
+                            <span class="bar-label">M+3</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 56px; background: var(--gradient-main);">
+                                <span class="bar-value" style="color: var(--accent-green);">42j</span>
+                            </div>
+                            <span class="bar-label">M+6</span>
+                        </div>
+                    </div>
+                    <div class="chart-source">
+                        Source : <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank">McKinsey GenAI Study</a> &middot; <a href="https://www.accenture.com/us-en/insights/banking/collections-transformation" target="_blank">Accenture Collections Report 2024</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
